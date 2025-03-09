@@ -16,8 +16,8 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Svg, { Rect, Text as SvgText } from 'react-native-svg';
 import { useLanguage } from '../context/LanguageContext';
+import { API_CONFIG } from '../config/api';
 
-const API_URL = 'http://localhost:5147/api';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 // UserType enum'ını ekleyelim
@@ -63,7 +63,7 @@ const LoginScreen = ({ navigation }: any) => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post(`${API_URL}/auth/login`, {
+      const response = await axios.post(`${API_CONFIG.BASE_URL}/api/auth/login`, {
         email,
         password,
         expectedUserType: isCustomer ? UserType.Customer : UserType.Company
@@ -104,7 +104,7 @@ const LoginScreen = ({ navigation }: any) => {
     }
 
     try {
-      const response = await axios.post(`${API_URL}/auth/register`, {
+      const response = await axios.post(`${API_CONFIG.BASE_URL}/api/auth/register`, {
         firstName,
         lastName,
         email,
