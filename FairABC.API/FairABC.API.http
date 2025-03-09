@@ -1,0 +1,6 @@
+@FairABC.API_HostAddress = http://localhost:5147
+
+GET {{FairABC.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
